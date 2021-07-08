@@ -1,21 +1,74 @@
+import { NavigationContainer } from '@react-navigation/native';
+import { createStackNavigator } from '@react-navigation/stack';
+
 import { StatusBar } from 'expo-status-bar';
 import React from 'react';
-import { StyleSheet, Text, View } from 'react-native';
+import {  SafeAreaView, View, Image, StyleSheet, Text, Animated} from 'react-native';
+
+//Screens
+import SplashScreen from './Screens/splashScreen';
+import FirstMainScreen from './Screens/firstMain';
+import SignInScreen from './Screens/signIn';
+import SignUpScreen from './Screens/signUp';
+
+//components
+import Button from './components/button';
+
+const Stack = createStackNavigator();
 
 export default function App() {
   return (
-    <View style={styles.container}>
-      <Text>Open up App.js to start working on your app!</Text>
-      <StatusBar style="auto" />
-    </View>
+    <NavigationContainer>
+      <Stack.Navigator screenOptions={{headerShown: false}}>
+
+        <Stack.Screen name="SignUp" component={SignUpScreen} />
+
+        <Stack.Screen name="FirstMain" component={FirstMainScreen} />
+
+        
+
+        
+      </Stack.Navigator>
+
+
+
+
+
+    </NavigationContainer>
+
+
+
+
+   
   );
 }
 
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#fff',
+    backgroundColor: '#000000',
     alignItems: 'center',
     justifyContent: 'center',
   },
+  loadingWrapper:{
+    flexDirection: 'column',
+    paddingHorizontal: 20,
+
+  },
+  topLoading: {
+    alignItems: 'center',
+    justifyContent: 'center',
+    width: 545,
+    height: 336,
+  },
+  bottomLoading: {
+    width: 403,
+    height: 306,
+    alignItems: 'center',
+    marginLeft: 60,
+
+
+
+  }
+
 });
