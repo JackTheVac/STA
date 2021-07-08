@@ -1,7 +1,8 @@
 import { StatusBar } from 'expo-status-bar';
 import React from 'react';
-import {  SafeAreaView, View, Image, StyleSheet, Text, Animated} from 'react-native';
-import Button from '../components/button';
+import {  TouchableOpacity,SafeAreaView, View, Image, StyleSheet, Text, Animated} from 'react-native';
+import { AntDesign } from '@expo/vector-icons'
+import BackButton from '../components/button';
 
 
 const SignUpScreen = () => {
@@ -9,20 +10,9 @@ const SignUpScreen = () => {
                 
         <View style={styles.container}>
             <View style = {styles.header}>
+              <BackButton />
               <Text style = {styles.titleText}>Sign Up</Text>
             </View>
-
-
-            
-            <SafeAreaView> 
-              <View style = {styles.loadingWrapper}>
-              {/* <Button text = {'Test'} /> */}
-                  <Image 
-                  source={require('../assets/images/signUpBG.png')}
-                  style = {styles.signUpBG} />
-              </View>
-           
-            </SafeAreaView>
         </View>
     )
 }
@@ -31,25 +21,28 @@ const styles = StyleSheet.create({
     container: {
         flex: 1,
         backgroundColor: '#000000',
-        alignItems: 'center',
+
+      },
+    header: {
+        height: 72,
+        //flexDirection: 'row',
+        backgroundColor: '#D0112B',
         justifyContent: 'center',
-      },
-      firstMainWrapper:{
-    
-        paddingHorizontal: 20,
-    
-      },
-      signUpBG: {
-        flex: 1,
-        width: 375,
-        height: 812,
-        alignContent: 'center',
-        resizeMode: 'contain',
+        //alignItems: 'center',
+      
+    },
+  
+    titleText: {
+      color: '#fff',
+      alignSelf: 'center',
+      fontSize: 20,
+
+    }
+
         
 
       
-      },
-
+      
     
     
       

@@ -11,8 +11,6 @@ import FirstMainScreen from './Screens/firstMain';
 import SignInScreen from './Screens/signIn';
 import SignUpScreen from './Screens/signUp';
 
-//components
-import Button from './components/button';
 
 const Stack = createStackNavigator();
 
@@ -25,21 +23,10 @@ export default function App() {
 
         <Stack.Screen name="FirstMain" component={FirstMainScreen} />
 
-        
-
-        
       </Stack.Navigator>
-
-
-
-
 
     </NavigationContainer>
 
-
-
-
-   
   );
 }
 
