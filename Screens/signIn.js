@@ -1,62 +1,91 @@
 import { StatusBar } from 'expo-status-bar';
 import React from 'react';
-import {  SafeAreaView, View, Image, StyleSheet, Text, Animated} from 'react-native';
-import Button from '../components/button';
+import {  KeyboardAvoidingView ,SafeAreaView, View, Image, StyleSheet, Text, Animated, KeyboardAvoidingViewBase} from 'react-native';
+import Banner from '../components/banner';
+import InputBox from '../components/inputBox';
+import SubtmitButton from '../components/submitButton';
 
 
 const SignInScreen = () => {
     return (
-                
+        <>      
         <View style={styles.container}>
-            
-            <SafeAreaView> 
-            <View style = {styles.loadingWrapper}>
-            {/* <Button text = {'Test'} /> */}
-                <Image 
-                source={require('../assets/images/signInBG.png')}
-                style = {styles.signInBG} />
+          <Banner title = 'Sign In' />
+          
+          <KeyboardAvoidingView 
+          behavior={Platform.OS === "ios" ? "padding" : "height"}
+          style = {styles.inputContainer}
+          >
+            <View style = {styles.inputBoxOne}>
+                  <InputBox title = 'Phone Number'/>
             </View>
-            <View>
-                
+            <View style = {styles.inputBoxTwo}>
+                  <InputBox title = 'Password'/>
             </View>
-            
-            
-            </SafeAreaView>
-            </View>
+
+          </KeyboardAvoidingView>
+          
+
+          <View style = {styles.submitButton}>
+              <SubtmitButton title = 'Log In' />
+          </View>
+          
+
+          <Image 
+            source =  {require('../assets/images/strawberry.png')}
+            style = {styles.strawberry}
+          />
+
+          <Image 
+            source =  {require('../assets/images/orange.png')}
+            style = {styles.orange}
+          />
+
+
+       </View>
+       </>
     )
 }
 
 const styles = StyleSheet.create({
     container: {
-        flex: 1,
-        backgroundColor: '#000000',
-        alignItems: 'center',
-        justifyContent: 'center',
+        backgroundColor: '#fff',
       },
-      firstMainWrapper:{
-    
-        paddingHorizontal: 20,
-    
-      },
-      signInBG: {
-        flex: 1,
-        width: 375,
-        height: 812,
-        alignContent: 'center',
-        resizeMode: 'contain',
-        
 
-      
+      inputContainer: {
+          backgroundColor: '#fff',
       },
-      bottomLoading: {
-        width: 403,
-        height: 306,
+
+      inputBoxOne: {
+        marginTop: 50,
+      },
+      inputBoxTwo: {
+        marginTop: 42,
+      },
+      submitButton: {
+        marginTop: 52,
         alignItems: 'center',
-        marginLeft: 60,
-    
-    
-    
+        //borderWidth: 1,
+        backgroundColor: '#fff'
+      },
+      strawberry: {
+        height: 227.52,
+        width: 250,
+        transform: [{rotate: '-9.73 deg'}],
+        //borderWidth: 2,
+        right: 35,
+        bottom: 10,
+      },
+      orange: {
+        width: 250,
+        height: 250,
+        //borderWidth: 1,
+        bottom: 130,
+        left: 180,
+        transform: [{rotate: '7.85 deg'}],
+       
       }
+    
 });
 
 export default SignInScreen;

@@ -1,7 +1,7 @@
 import { StatusBar } from 'expo-status-bar';
 import React from 'react';
 import {  SafeAreaView, View, Image, StyleSheet, Text, Animated} from 'react-native';
-import Button from '../components/button';
+import BackButton from '../components/backButton';
 
 
 const FirstMainScreen = () => {

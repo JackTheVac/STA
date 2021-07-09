@@ -17,7 +17,9 @@ const BackButton = () => {
 const styles = StyleSheet.create({
     returnLogo:{
         top: 25,
-        marginLeft: 10
+        marginLeft: 10,
+        width: 20,
+        
     },
     
 
