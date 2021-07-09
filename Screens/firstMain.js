@@ -29,8 +29,12 @@ const FirstMainScreen = () => {
               style = {styles.stLogo}
             />
 
-           <View style = {styles.submitButton}>
-             <SubtmitButton title = 'Log In' />
+           <View style = {styles.logInButton}>
+             <SubtmitButton title = 'Sign In' />
+           </View>
+
+           <View style = {styles.signUpButton}>
+             <SubtmitButton title = 'Sign Up' />
            </View>
 
 
@@ -43,6 +47,8 @@ const FirstMainScreen = () => {
 const styles = StyleSheet.create({
     container: {
         backgroundColor: '#fff',
+        
+        flex: 1,
       },
     topImage: {
         height: 232,
@@ -61,16 +67,26 @@ const styles = StyleSheet.create({
        // borderWidth: 1,
 
         },
-        horFirst: {
+      horFirst: {
           height: 277,
           width: 211,
 
         },
-        horSecond: {
+      horSecond: {
           height: 277,
           width: 211,
         },
-      
+      logInButton: {
+       // borderWidth: 2,
+        alignSelf: 'center',
+        bottom: 40,
+      },
+
+      signUpButton : {
+        //borderWidth: 2,
+        alignSelf : 'center',
+        bottom: 0,
+      }
     
       
 });

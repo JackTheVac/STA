@@ -27,7 +27,7 @@ const SignInScreen = () => {
           
 
           <View style = {styles.submitButton}>
-              <SubtmitButton title = 'Log In' />
+              <SubtmitButton title = 'Sign In' />
           </View>
           
 
