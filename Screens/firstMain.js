@@ -2,52 +2,77 @@ import { StatusBar } from 'expo-status-bar';
 import React from 'react';
 import {  SafeAreaView, View, Image, StyleSheet, Text, Animated} from 'react-native';
 import BackButton from '../components/backButton';
+import SubtmitButton from '../components/submitButton';
 
 
 const FirstMainScreen = () => {
     return (
                 
         <View style={styles.container}>
+           <Image 
+              source = {require('../assets/images/STimg.jpeg')} 
+              style = {styles.topImage}
+            />
+            <View style = {styles.horView}>
+              <Image
+                source ={require('../assets/images/drink_box.png')}
+                style = {styles.horFirst}
+              />
+              <Image
+                source = {require('../assets/images/drink_pic.jpg')}
+                style = {styles.horSecond}
+              />
+            </View>
             
-            <SafeAreaView> 
-              <View style = {styles.loadingWrapper}>
-              {/* <Button text = {'Test'} /> */}
-                  <Image 
-                  source={require('../assets/images/firstMainBG.png')}
-                  style = {styles.mainBG} />
-              </View>
-   
-            </SafeAreaView>
+            <Image 
+              source = {require('../assets/images/stLogo.png')}
+              style = {styles.stLogo}
+            />
+
+           <View style = {styles.submitButton}>
+             <SubtmitButton title = 'Log In' />
+           </View>
+
+
+
+            
         </View>
     )
 }
 
 const styles = StyleSheet.create({
     container: {
-        flex: 1,
-        backgroundColor: '#000000',
-        alignItems: 'center',
-        justifyContent: 'center',
+        backgroundColor: '#fff',
       },
-      firstMainWrapper:{
-    
-        paddingHorizontal: 20,
-    
+    topImage: {
+        height: 232,
+        width: 420,
+        alignSelf: 'center',
+      //  borderWidth: 2,
       },
-      mainBG: {
-        width: 375,
-        height: 812,
+    horView : {
+      flexDirection: 'row',
+    },
+      stLogo: {
+        height: 94,
+        width: 356,
+        alignSelf: 'center',
+        bottom: 320,
+       // borderWidth: 1,
+
+        },
+        horFirst: {
+          height: 277,
+          width: 211,
+
+        },
+        horSecond: {
+          height: 277,
+          width: 211,
+        },
       
-      },
-      bottomLoading: {
-        width: 403,
-        height: 306,
-        alignItems: 'center',
-        marginLeft: 60,
     
-    
-    
-      }
+      
 });
 
 export default FirstMainScreen;
