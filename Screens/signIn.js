@@ -10,7 +10,10 @@ const SignInScreen = () => {
     return (
         <>      
         <View style={styles.container}>
-          <Banner title = 'Sign In' />
+          <Banner 
+            title = 'Sign In'
+            lastPage = 'firstMainScreen'
+                   />
           
           <KeyboardAvoidingView 
           behavior={Platform.OS === "ios" ? "padding" : "height"}

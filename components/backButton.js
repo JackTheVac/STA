@@ -2,10 +2,15 @@ import { StatusBar } from 'expo-status-bar';
 import React from 'react';
 import { TouchableOpacity, SafeAreaView, View, Image, StyleSheet, Text, Animated} from 'react-native';
 import { AntDesign } from '@expo/vector-icons'
+import { useNavigation } from '@react-navigation/native';
 
-const BackButton = () => {
+
+const BackButton = (props) => {
+    const navigation = useNavigation();
     return(
-        <TouchableOpacity style = {styles.returnLogo}>
+        <TouchableOpacity 
+            style = {styles.returnLogo}
+            onPress = { ()=> navigation.navigate(props.lastPage)}>
                  <AntDesign name="left" size={24} color="white" />
         </TouchableOpacity>
 

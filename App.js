@@ -1,9 +1,16 @@
-import { NavigationContainer } from '@react-navigation/native';
-import { createStackNavigator } from '@react-navigation/stack';
+
 
 import { StatusBar } from 'expo-status-bar';
 import React from 'react';
 import {  SafeAreaView, View, Image, StyleSheet, Text, Animated} from 'react-native';
+
+import {enableScreens} from 'react-native-screens'
+
+
+enableScreens();
+
+import { NavigationContainer } from '@react-navigation/native';
+import {createNativeStackNavigator} from 'react-native-screens/native-stack'
 
 //Screens
 import SplashScreen from './Screens/splashScreen';
@@ -12,20 +19,37 @@ import SignInScreen from './Screens/signIn';
 import SignUpScreen from './Screens/signUp';
 
 
-const Stack = createStackNavigator();
+const Stack = createNativeStackNavigator();
 
 export default function App() {
   return (
     <NavigationContainer>
-      <Stack.Navigator screenOptions={{headerShown: false}}>
-
-        <Stack.Screen name="Signin" component={FirstMainScreen} />
-
-        <Stack.Screen name="FirstMain" component={FirstMainScreen} />
-
+      <Stack.Navigator screenOptions = {{headerShown: false}}
+          initialRouteName = {'firstMainScreen'}>
+        <Stack.Screen name = 'firstMainScreen' component = {FirstMainScreen} />
+        <Stack.Screen name = 'signInScreen' component = {SignInScreen} />
+        <Stack.Screen name = 'signUpScreen' component = {SignUpScreen} />
       </Stack.Navigator>
 
     </NavigationContainer>
+
+
+
+
+
+
+
+
+    // <NavigationContainer>
+    //   <Stack.Navigator screenOptions={{headerShown: false}}>
+
+    //     <Stack.Screen name="Signin" component={FirstMainScreen} />
+
+    //     <Stack.Screen name="FirstMain" component={FirstMainScreen} />
+
+    //   </Stack.Navigator>
+
+    // </NavigationContainer>
 
   );
 }

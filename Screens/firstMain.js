@@ -6,6 +6,8 @@ import SubtmitButton from '../components/submitButton';
 
 
 const FirstMainScreen = () => {
+
+    
     return (
                 
         <View style={styles.container}>
@@ -30,11 +32,17 @@ const FirstMainScreen = () => {
             />
 
            <View style = {styles.logInButton}>
-             <SubtmitButton title = 'Sign In' />
+             <SubtmitButton 
+               title = "Sign In"
+               next = "signInScreen"
+             />
            </View>
 
            <View style = {styles.signUpButton}>
-             <SubtmitButton title = 'Sign Up' />
+             <SubtmitButton 
+               title = 'Sign Up'
+               next ='signUpScreen'
+              />
            </View>
 
 

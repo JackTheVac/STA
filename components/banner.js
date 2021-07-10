@@ -4,12 +4,12 @@ import {  TouchableOpacity,SafeAreaView, View, Image, StyleSheet, Text, Animated
 import { AntDesign } from '@expo/vector-icons'
 import BackButton from '../components/backButton';
 
-const Banner = ({ title }) => {
+const Banner = (props) => {
     return (       
         <View style={styles.container}>
             <View style = {styles.header}>
-              <BackButton />
-              <Text style = {styles.titleText} >{title}</Text>
+              <BackButton lastPage = {props.lastPage} />
+              <Text style = {styles.titleText} >{props.title}</Text>
             </View>
         </View>
         

@@ -10,29 +10,26 @@ const SignUpScreen = () => {
     return (
         <>
         <View style = {styles.container}>
-        <Banner title = 'Sign Up' />
+        <Banner 
+          title = 'Sign Up' 
+          lastPage = 'firstMainScreen'
+            />
             <KeyboardAvoidingView
               behavior={Platform.OS === "ios" ? "padding" : "height"}
               style = {styles.inputContainer}> 
-                <View style = {styles.inputOne}>
-                  <InputBox title = 'Phone Number'/>
-                </View>
-                <View style = {styles.inputOne}>
-                  <InputBox title = 'Password'/>
-                </View>
-                <View style = {styles.inputOne}>
-                  <InputBox title = 'Confirm Password'/>
-                </View>
-                  
-               
-
-          
-            
-
+                  <View style = {styles.inputOne}>
+                    <InputBox title = 'Phone Number'/>
+                  </View>
+                  <View style = {styles.inputOne}>
+                    <InputBox title = 'Password'/>
+                  </View>
+                  <View style = {styles.inputOne}>
+                    <InputBox title = 'Confirm Password'/>
+                  </View>
             </KeyboardAvoidingView>
             
             <View style = {styles.submitButton}>
-              <SubtmitButton title = 'Submit' />
+              <SubtmitButton  title ='Submit' />
             </View>
             
 
