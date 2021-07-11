@@ -1,5 +1,5 @@
 import React from 'react';
-
+import QR from '../components/qrBox'
 import { View, Text, StyleSheet } from 'react-native';
 
 
@@ -8,7 +8,7 @@ const rewardsScreen = () =>{
 
     return(
         <View>
-            <Text> Hello </Text>
+            <QR uuid='userUUID'/>
         </View>
     );
 }
