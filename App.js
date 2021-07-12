@@ -13,10 +13,10 @@ import { NavigationContainer } from '@react-navigation/native';
 import {createNativeStackNavigator} from 'react-native-screens/native-stack'
 
 //Screens
-import SplashScreen from './Screens/splashScreen';
 import FirstMainScreen from './Screens/firstMain';
 import SignInScreen from './Screens/signIn';
 import SignUpScreen from './Screens/signUp';
+import RewardsScreen from './Screens/rewardsScreen';
 
 
 const Stack = createNativeStackNavigator();
