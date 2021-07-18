@@ -1,30 +1,51 @@
 import React from 'react';
 import QR from '../components/qrBox';
 import StampBar from '../components/progressBar'
-import { View, Text, StyleSheet } from 'react-native';
+import { SafeAreaView, View, Text, StyleSheet } from 'react-native';
 
 
 const rewardsScreen = () =>{
     return(
-        <View>
-            <QR uuid='userUUID' styles = {styles.container}/>
-            <StampBar stampCount = {2}/>
+        <>
+        <View style = {styles.container}>
+        <SafeAreaView style = {styles.safeAreaContainer}>
+
+        </SafeAreaView>
+        
+            
+            <View style = {styles.stampBarBox}>
+                <StampBar stampCount = {2}/>
+            </View>
+            
+            <View style = {styles.textUpdateBox}>
+                <Text>dawdwadawd</Text>
+            </View>
+
+            <View style = {styles.QRBox}>
+            <QR uuid='userUUID' style = {styles.QRcontainer}/>
+            </View>
+
+
         </View>
+        </>
     );
 }
 
 
 const styles = StyleSheet.create({
     container: {
-        flex: 1,
-        margin: 10,
-        alignItems: 'center',
-        paddingTop: 20
+        backgroundColor: '#fff',
+        borderWidth: 3
     },
-    bar: {
-        position: 'relative',
-        top: 'center',
-    }
+    safeAreaContainer: {
+        backgroundColor: '#fff',
+
+
+    },
+    stampBarBox: {
+       
+    },
+
 });
 
 export default rewardsScreen;

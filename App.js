@@ -25,7 +25,7 @@ export default function App() {
   return (
     <NavigationContainer>
       <Stack.Navigator screenOptions = {{headerShown: false}}
-          initialRouteName = {'firstMainScreen'}>
+          initialRouteName = {'rewardsScreen'}>
         <Stack.Screen name = 'firstMainScreen' component = {FirstMainScreen} />
         <Stack.Screen name = 'signInScreen' component = {SignInScreen} />
         <Stack.Screen name = 'signUpScreen' component = {SignUpScreen} />

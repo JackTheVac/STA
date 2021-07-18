@@ -18,8 +18,9 @@ const SignUpScreen = ({navigation}) => {
     const signUp = async() => {
       try{
         //auth().createUserWithEmailAndPassword(email,password)
-        auth.createUserWithEmailAndPassword(email,password)
+        await auth.createUserWithEmailAndPassword(email,password)
         navigation.navigate('rewardsScreen')  
+        
       }catch(err){
         setError(err.message)
       } 
