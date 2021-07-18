@@ -1,13 +1,15 @@
 import React from 'react';
-import QR from '../components/qrBox'
+import QR from '../components/qrBox';
+import StampBar from '../components/progressBar'
 import { View, Text, StyleSheet } from 'react-native';
 
 
 const rewardsScreen = () =>{
-
-
     return(
-        <QR uuid='userUUID' styles = {styles.container}/>
+        <View>
+            <QR uuid='userUUID' styles = {styles.container}/>
+            <StampBar stampCount = {2}/>
+        </View>
     );
 }
 
@@ -19,6 +21,10 @@ const styles = StyleSheet.create({
         alignItems: 'center',
         paddingTop: 20
     },
+    bar: {
+        position: 'relative',
+        top: 'center',
+    }
 });
 
 export default rewardsScreen;
