@@ -1,12 +1,31 @@
 import { StatusBar } from 'expo-status-bar';
-import React from 'react';
+import React, {useState} from 'react';
 import {   KeyboardAvoidingView,TouchableOpacity,SafeAreaView, View, Image, StyleSheet, Text, Animated, KeyboardAvoidingViewBase} from 'react-native';
 import Banner from '../components/banner';
 import InputBox from '../components/inputBox';
+import Input from 'react-native-elements'
 import SubtmitButton from '../components/submitButton';
+import { useNavigation } from '@react-navigation/native';
+import {auth} from '../firebase'
 
 
-const SignUpScreen = () => {
+
+const SignUpScreen = ({navigation}) => {
+    const [email, setEmail] = useState('');
+    const [password, setPassword] = useState('');
+    const [error, setError] = useState('');
+
+    const signUp = async() => {
+      try{
+        //auth().createUserWithEmailAndPassword(email,password)
+        auth.createUserWithEmailAndPassword(email,password)
+        navigation.navigate('rewardsScreen')  
+      }catch(err){
+        setError(err.message)
+      } 
+    }
+
+    
     return (
         <>
         <View style = {styles.container}>
@@ -18,18 +37,37 @@ const SignUpScreen = () => {
               behavior={Platform.OS === "ios" ? "padding" : "height"}
               style = {styles.inputContainer}> 
                   <View style = {styles.inputOne}>
-                    <InputBox title = 'Phone Number'/>
+                    <InputBox 
+                      title = 'Email'
+                      value = {email}
+                      onChangeText = {setEmail}
+                      hide = {false}
+                    />
                   </View>
                   <View style = {styles.inputOne}>
-                    <InputBox title = 'Password'/>
+                    <InputBox
+                      title = 'Password'
+                      value = {password}
+                      onChangeText= {setPassword}
+                      hide = {true}
+                    />
                   </View>
                   <View style = {styles.inputOne}>
-                    <InputBox title = 'Confirm Password'/>
+                    <InputBox 
+                      title = 'Confirm Password'
+                      hide = {true}/>
                   </View>
             </KeyboardAvoidingView>
             
             <View style = {styles.submitButton}>
-              <SubtmitButton  title ='Submit' />
+              <View style = {styles.buttonContainer}>
+                <TouchableOpacity
+                style = {styles.buttonBorder}
+                onPress = { ()=> signUp()}
+                >
+                    <Text style = {styles.titleText}>Sign Up</Text>
+                </TouchableOpacity>
+              </View>
             </View>
             
 
@@ -43,7 +81,11 @@ const SignUpScreen = () => {
         </View>
            
 
-
+        {
+          error?
+          <Text style = {{color:'red'}}>{error}</Text>
+          :null
+        }
 
 
 
@@ -87,9 +129,27 @@ const styles = StyleSheet.create({
       //borderWidth: 5,
       right: 130,
       bottom : -10,
-    }
+    },
+
+    buttonContainer: {
+      backgroundColor: '#fff',
+    },
     
-        
+    buttonBorder: {
+      backgroundColor: '#D0112B',
+      height: 40,
+      width: 127,
+      borderWidth: 1,
+      borderRadius: 10,
+  },
+
+  titleText: {    
+    textAlign: 'center',
+    fontWeight: 'bold',
+    marginTop: 5,
+    fontSize: 20,
+    color: '#fff'
+  },
 
       
       

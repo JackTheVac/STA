@@ -29,6 +29,7 @@ export default function App() {
         <Stack.Screen name = 'firstMainScreen' component = {FirstMainScreen} />
         <Stack.Screen name = 'signInScreen' component = {SignInScreen} />
         <Stack.Screen name = 'signUpScreen' component = {SignUpScreen} />
+        <Stack.Screen name = 'rewardsScreen' component = {RewardsScreen} />
       </Stack.Navigator>
 
     </NavigationContainer>
