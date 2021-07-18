@@ -1,12 +1,29 @@
 import { StatusBar } from 'expo-status-bar';
-import React from 'react';
-import {  KeyboardAvoidingView ,SafeAreaView, View, Image, StyleSheet, Text, Animated, KeyboardAvoidingViewBase} from 'react-native';
+import React ,{useState}from 'react';
+import { TouchableOpacity, KeyboardAvoidingView ,SafeAreaView, View, Image, StyleSheet, Text, Animated, KeyboardAvoidingViewBase} from 'react-native';
 import Banner from '../components/banner';
 import InputBox from '../components/inputBox';
 import SubtmitButton from '../components/submitButton';
+import {auth} from '../firebase'
 
 
-const SignInScreen = () => {
+const SignInScreen = ({navigation}) => {
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
+  const [error, setError] = useState('');
+
+  const signIn = async() => {
+    try{
+      //auth().createUserWithEmailAndPassword(email,password)
+      auth.signInWithEmailAndPassword(email,password)
+      navigation.navigate('rewardsScreen')  
+    }catch(err){
+      setError(err.message)
+     
+    } 
+  }
+
+
     return (
         <>      
         <View style={styles.container}>
@@ -20,17 +37,35 @@ const SignInScreen = () => {
           style = {styles.inputContainer}
           >
             <View style = {styles.inputBoxOne}>
-                  <InputBox title = 'Phone Number'/>
+                  <InputBox 
+                    title = 'Email'
+                    hide = {false}
+                    value = {email}
+                    onChangeText = {setEmail}
+                  />
             </View>
             <View style = {styles.inputBoxTwo}>
-                  <InputBox title = 'Password'/>
+                  <InputBox 
+                    title = 'Password'
+                    hide = {true}
+                    value = {password}
+                    onChangeText= {setPassword}
+
+                  />
             </View>
 
           </KeyboardAvoidingView>
           
 
           <View style = {styles.submitButton}>
-              <SubtmitButton title = 'Sign In' />
+            <View style = {styles.submitContainer}>
+              <TouchableOpacity
+              style = {styles.buttonBorder}
+              onPress = { ()=> signIn()}
+              >
+                  <Text style = {styles.titleText}>Sign In</Text>
+              </TouchableOpacity>
+            </View>
           </View>
           
 
@@ -44,9 +79,16 @@ const SignInScreen = () => {
             style = {styles.orange}
           />
 
+          {
+          error?
+          <Text style = {{color:'red'}}>{error}</Text>
+          :null
+        }
+
 
        </View>
        </>
+       
     )
 }
 
@@ -87,7 +129,31 @@ const styles = StyleSheet.create({
         left: 180,
         transform: [{rotate: '7.85 deg'}],
        
-      }
+      },
+
+      submitContainer: {
+        backgroundColor: '#fff',
+      },
+      buttonBorder: {
+        backgroundColor: '#D0112B',
+        height: 40,
+        width: 127,
+        borderWidth: 1,
+        borderRadius: 10,
+    },
+      titleText: {    
+        textAlign: 'center',
+        fontWeight: 'bold',
+        marginTop: 5,
+        fontSize: 20,
+        color: '#fff'
+        
+        
+
+    },
+
+
+
     
 });
 

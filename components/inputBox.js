@@ -3,15 +3,23 @@ import React from 'react';
 import {TouchableOpacity, SafeAreaView, View, Image, StyleSheet, Text, Animated, TextInput} from 'react-native';
 
 
-const InputBox = ({title}) => {
+
+//TWO PROPS: TITLE (Set as string) and HIDE (set as true or false)
+//ONE OPTIONAL PROP: onChangeText
+const InputBox = (props) => {
     return (
 
         <>
 
             <View>
-                <Text style = {styles.fieldText}>{title}</Text>
+                <Text style = {styles.fieldText}>{props.title}</Text>
                 <View style = {styles.inputContainer}>      
-                    <TextInput style = {styles.textInput} />    
+                    <TextInput 
+                        style = {styles.textInput}
+                        secureTextEntry = {props.hide}
+                        onChangeText = {props.onChangeText}   
+                         /> 
+                        
                 </View>
             </View>
             
