@@ -15,8 +15,11 @@ const SignInScreen = ({navigation}) => {
   const signIn = async() => {
     try{
       //auth().createUserWithEmailAndPassword(email,password)
-      auth.signInWithEmailAndPassword(email,password)
+      await auth.signInWithEmailAndPassword(email,password)
+      
       navigation.navigate('rewardsScreen')  
+      //.catch((error) => alert(error));
+     
     }catch(err){
       setError(err.message)
      
@@ -55,13 +58,17 @@ const SignInScreen = ({navigation}) => {
             </View>
 
           </KeyboardAvoidingView>
-          
+          {
+          error?
+          <Text style = {styles.errorMessage}>{error}</Text>
+          :null
+          }
 
           <View style = {styles.submitButton}>
             <View style = {styles.submitContainer}>
               <TouchableOpacity
               style = {styles.buttonBorder}
-              onPress = { ()=> signIn()}
+              onPress = {signIn}
               >
                   <Text style = {styles.titleText}>Sign In</Text>
               </TouchableOpacity>
@@ -79,11 +86,7 @@ const SignInScreen = ({navigation}) => {
             style = {styles.orange}
           />
 
-          {
-          error?
-          <Text style = {{color:'red'}}>{error}</Text>
-          :null
-        }
+          
 
 
        </View>
@@ -151,6 +154,12 @@ const styles = StyleSheet.create({
         
 
     },
+    errorMessage: {
+      color:'red',
+      //borderWidth: 3,
+      alignSelf: 'center',
+      paddingTop: 20,
+    }
 
 
 
