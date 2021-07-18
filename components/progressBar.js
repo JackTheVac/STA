@@ -6,7 +6,7 @@ import React from 'react';
 const StampBar = (props) => {
     return (
     <View style = {styles.container}>
-        <Progress.Bar progress = {progressRatio(props.stampCount)} style = {styles.progress}/>
+        <Progress.Bar progress = {progressRatio(props.stampCount)} borderColor = {'#D0112B'} color = {'#D0112B'}/>
     </View>
     );
 }
@@ -23,15 +23,8 @@ function progressRatio(stampCount) {
 
 const styles = StyleSheet.create({
     container: {
-        flex: 1,
-        justifyContent: 'center',
         alignItems: 'center',
         backgroundColor: '#fff',
-        paddingVertical: 20,
-        },
-    progress: {
-        borderColor: '#D0112B',
-        color: '#D0112B'
         },
 })
 
