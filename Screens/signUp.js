@@ -17,7 +17,7 @@ const SignUpScreen = ({navigation}) => {
     const signUp = async() => {
       try{
         //auth().createUserWithEmailAndPassword(email,password)
-        auth.createUserWithEmailAndPassword(email,password)
+        await auth.createUserWithEmailAndPassword(email,password)
         navigation.navigate('rewardsScreen')  
       }catch(err){
         setError(err.message)
@@ -57,6 +57,12 @@ const SignUpScreen = ({navigation}) => {
                       hide = {true}/>
                   </View>
             </KeyboardAvoidingView>
+
+            {
+          error?
+          <Text style = {styles.errorMessage}>{error}</Text>
+          :null
+        }
             
             <View style = {styles.submitButton}>
               <View style = {styles.buttonContainer}>
@@ -149,7 +155,12 @@ const styles = StyleSheet.create({
     fontSize: 20,
     color: '#fff'
   },
-
+  
+  errorMessage: {
+    color: 'red',
+    alignSelf: 'center',
+    top: 20,
+  }
       
       
     
