@@ -3,7 +3,6 @@ import React ,{useState}from 'react';
 import { TouchableOpacity, KeyboardAvoidingView ,SafeAreaView, View, Image, StyleSheet, Text, Animated, KeyboardAvoidingViewBase} from 'react-native';
 import Banner from '../components/banner';
 import InputBox from '../components/inputBox';
-import SubtmitButton from '../components/submitButton';
 import {auth} from '../firebase'
 
 

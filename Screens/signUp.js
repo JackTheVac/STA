@@ -4,7 +4,6 @@ import {   KeyboardAvoidingView,TouchableOpacity,SafeAreaView, View, Image, Styl
 import Banner from '../components/banner';
 import InputBox from '../components/inputBox';
 import Input from 'react-native-elements'
-import SubtmitButton from '../components/submitButton';
 import { useNavigation } from '@react-navigation/native';
 import {auth} from '../firebase'
 
