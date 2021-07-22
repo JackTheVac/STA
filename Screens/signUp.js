@@ -4,7 +4,6 @@ import {   KeyboardAvoidingView,TouchableOpacity,SafeAreaView, View, Image, Styl
 import Banner from '../components/banner';
 import InputBox from '../components/inputBox';
 import Input from 'react-native-elements'
-import SubtmitButton from '../components/submitButton';
 import { useNavigation } from '@react-navigation/native';
 import {auth} from '../firebase'
 
@@ -59,6 +58,12 @@ const SignUpScreen = ({navigation}) => {
                       hide = {true}/>
                   </View>
             </KeyboardAvoidingView>
+
+            {
+          error?
+          <Text style = {styles.errorMessage}>{error}</Text>
+          :null
+        }
             
             <View style = {styles.submitButton}>
               <View style = {styles.buttonContainer}>
@@ -151,7 +156,12 @@ const styles = StyleSheet.create({
     fontSize: 20,
     color: '#fff'
   },
-
+  
+  errorMessage: {
+    color: 'red',
+    alignSelf: 'center',
+    top: 20,
+  }
       
       
     

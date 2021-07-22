@@ -2,7 +2,7 @@ import { StatusBar } from 'expo-status-bar';
 import React from 'react';
 import {  SafeAreaView, View, Image, StyleSheet, Text, Animated} from 'react-native';
 import BackButton from '../components/backButton';
-import SubtmitButton from '../components/submitButton';
+import SubmitButton from '../components/submitButton';
 
 
 const FirstMainScreen = () => {
@@ -32,14 +32,14 @@ const FirstMainScreen = () => {
             />
 
            <View style = {styles.logInButton}>
-             <SubtmitButton 
+             <SubmitButton 
                title = "Sign In"
                next = "signInScreen"
              />
            </View>
 
            <View style = {styles.signUpButton}>
-             <SubtmitButton 
+             <SubmitButton 
                title = 'Sign Up'
                next ='signUpScreen'
               />
