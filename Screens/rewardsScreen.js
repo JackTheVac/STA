@@ -4,6 +4,7 @@ import StampBar from '../components/progressBar'
 import { View, Text, StyleSheet } from 'react-native';
 import { SafeAreaView } from 'react-native';
 import BottomNavigationBar from '../components/bottomNavigationBar';
+import { Dimensions } from 'react-native';
 
 
 const rewardsScreen = () =>{
@@ -26,13 +27,14 @@ const rewardsScreen = () =>{
                     <BottomNavigationBar/>
                 </View>
             
-       
-           
-           
+            <View style = {styles.qrContainer}>
+                <QR uuid='userUUID'/>
+            </View>
+            
+            
             
         </SafeAreaView>
-          
-            
+        <BottomNavigationBar/>
         </View>
         
     );
@@ -46,20 +48,15 @@ const styles = StyleSheet.create({
     container: {
         backgroundColor: 'white',
         width: '100%',
-        height: '100%',
-     
+        height: Dimensions.get('window').height - 72,
     },
     stampBarSpace: {
-      
-        borderWidth: 10,
+        justifyContent: 'space-between',
     },
-    qrContainer: {   
+    qrContainer: {
+        justifyContent: 'space-between',
         top: 50,
-        borderWidth: 10,
-
-
     },
-  
     textContainer: {
         textAlign: 'center',
     },
@@ -67,14 +64,6 @@ const styles = StyleSheet.create({
         borderWidth: 20,
         
     },
-    bottomContainer: {
-        top: 10,
-        borderWidth: 10
-        
-        
-       
-    },
-    
 });
 
 export default rewardsScreen;
