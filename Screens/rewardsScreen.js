@@ -10,16 +10,23 @@ const rewardsScreen = () =>{
     return(
         <View>
         <SafeAreaView style = {styles.container}>
+            
             <View style = {styles.stampBarSpace}>
                 <Text style = {styles.textContainer}> Stamp Count: {getStampCount()} </Text>
-                <StampBar stampCount = {2} styles = {styles.bar}/>
+                    <StampBar stampCount = {2}/>
                 <Text style = {styles.textContainer}> Purchase at least {10 - getStampCount()} more drinks to receive your free drink! </Text>
             </View>
+            
             <View style = {styles.qrContainer}>
                 <QR uuid='userUUID' styles = {styles.qr} />
             </View>
+            
+            <View style = {styles.bottomContainer}>
+                <BottomNavigationBar style = {styles.navigationFooter}/>
+            </View>
+            
         </SafeAreaView>
-        <BottomNavigationBar style = {styles.navigationFooter}/>
+       
         </View>
         
     );
@@ -38,14 +45,13 @@ const styles = StyleSheet.create({
     },
     stampBarSpace: {
         justifyContent: 'space-between',
-    },
-    bar: {
-        // position: 'relative',
-        // justifyContent: 'center',
-        // top: '50',
+        borderWidth: 10,
     },
     qrContainer: {
-        justifyContent: 'space-around',
+        //alignItems: 'center',
+        justifyContent: 'space-between',
+        top: 50,
+        borderWidth: 10,
     },
     qr: {
         // justifyContent: 'center',
@@ -55,6 +61,13 @@ const styles = StyleSheet.create({
         textAlign: 'center',
     },
     navigationFooter: {
+        borderWidth: 20,
+        
+    },
+    bottomContainer: {
+        borderWidth: 10,
+        position: 'absolute', //Here is the trick
+        bottom: 0, //Here is the trick
     }
 });
 
