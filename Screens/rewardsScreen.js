@@ -16,17 +16,23 @@ const rewardsScreen = () =>{
                     <StampBar stampCount = {2}/>
                 <Text style = {styles.textContainer}> Purchase at least {10 - getStampCount()} more drinks to receive your free drink! </Text>
             </View>
+
+
+                <View style = {styles.qrContainer}>
+                    <QR uuid='userUUID'/>
+                </View>
+
+                <View style = {styles.bottomContainer}>
+                    <BottomNavigationBar/>
+                </View>
             
-            <View style = {styles.qrContainer}>
-                <QR uuid='userUUID' styles = {styles.qr} />
-            </View>
-            
-            <View style = {styles.bottomContainer}>
-                <BottomNavigationBar style = {styles.navigationFooter}/>
-            </View>
+       
+           
+           
             
         </SafeAreaView>
-       
+          
+            
         </View>
         
     );
@@ -41,22 +47,19 @@ const styles = StyleSheet.create({
         backgroundColor: 'white',
         width: '100%',
         height: '100%',
-        // justifyContent: 'space-between',
+     
     },
     stampBarSpace: {
-        justifyContent: 'space-between',
+      
         borderWidth: 10,
     },
-    qrContainer: {
-        //alignItems: 'center',
-        justifyContent: 'space-between',
+    qrContainer: {   
         top: 50,
         borderWidth: 10,
+
+
     },
-    qr: {
-        // justifyContent: 'center',
-        // top: '70',
-    },
+  
     textContainer: {
         textAlign: 'center',
     },
@@ -65,10 +68,13 @@ const styles = StyleSheet.create({
         
     },
     bottomContainer: {
-        borderWidth: 10,
-        position: 'absolute', //Here is the trick
-        bottom: 0, //Here is the trick
-    }
+        top: 10,
+        borderWidth: 10
+        
+        
+       
+    },
+    
 });
 
 export default rewardsScreen;
