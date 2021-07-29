@@ -8,9 +8,7 @@ import {TouchableOpacity, SafeAreaView, View, Image, StyleSheet, Text, Animated,
 //ONE OPTIONAL PROP: onChangeText
 const InputBox = (props) => {
     return (
-
         <>
-
             <View>
                 <Text style = {styles.fieldText}>{props.title}</Text>
                 <View style = {styles.inputContainer}>      
@@ -18,22 +16,11 @@ const InputBox = (props) => {
                         style = {styles.textInput}
                         secureTextEntry = {props.hide}
                         onChangeText = {props.onChangeText}   
-                         /> 
-                        
+                         />  
                 </View>
             </View>
-            
-
-       
-
         </>
-
-
     )
-
-
-
-
 }
 
 const styles = StyleSheet.create({
@@ -41,33 +28,22 @@ const styles = StyleSheet.create({
     inputContainer: {
         alignItems: 'center',
         justifyContent: 'center',
-        backgroundColor: '#fff'
-       
-        
+        backgroundColor: '#fff'   
     },
-
 
     fieldText: {
         paddingBottom: 5,
         backgroundColor: '#fff',
         paddingLeft: 88,
-        
-
     },
+
     textInput: {
         width: 242,
         height: 48,
         borderWidth: 1,
         backgroundColor: '#E7E7E7',
         borderRadius: 5,
-        
-
     }
-
-
-
-
-
 })
 
 export default InputBox;

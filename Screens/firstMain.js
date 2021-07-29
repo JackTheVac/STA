@@ -8,8 +8,7 @@ import SubmitButton from '../components/submitButton';
 const FirstMainScreen = () => {
 
     
-    return (
-                
+    return (  
         <View style={styles.container}>
            <Image 
               source = {require('../assets/images/STimg.jpeg')} 
@@ -44,10 +43,6 @@ const FirstMainScreen = () => {
                next ='signUpScreen'
               />
            </View>
-
-
-
-            
         </View>
     )
 }
@@ -55,48 +50,49 @@ const FirstMainScreen = () => {
 const styles = StyleSheet.create({
     container: {
         backgroundColor: '#fff',
-        
         flex: 1,
       },
+
     topImage: {
         height: 232,
         width: 420,
         alignSelf: 'center',
       //  borderWidth: 2,
       },
+
     horView : {
       flexDirection: 'row',
     },
-      stLogo: {
-        height: 94,
-        width: 356,
-        alignSelf: 'center',
-        bottom: 320,
-       // borderWidth: 1,
 
-        },
-      horFirst: {
-          height: 277,
-          width: 211,
+    stLogo: {
+      height: 94,
+      width: 356,
+      alignSelf: 'center',
+      bottom: 320,
+      // borderWidth: 1,
 
-        },
-      horSecond: {
-          height: 277,
-          width: 211,
-        },
-      logInButton: {
-       // borderWidth: 2,
-        alignSelf: 'center',
-        bottom: 40,
+      },
+    horFirst: {
+        height: 277,
+        width: 211,
       },
 
-      signUpButton : {
-        //borderWidth: 2,
-        alignSelf : 'center',
-        bottom: 0,
-      }
+    horSecond: {
+        height: 277,
+        width: 211,
+      },
     
-      
+    logInButton: {
+      // borderWidth: 2,
+      alignSelf: 'center',
+      bottom: 40,
+    },
+
+    signUpButton : {
+      //borderWidth: 2,
+      alignSelf : 'center',
+      bottom: 0,
+    } 
 });
 
 export default FirstMainScreen;

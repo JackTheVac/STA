@@ -13,9 +13,6 @@ const BackButton = (props) => {
             onPress = { ()=> navigation.navigate(props.lastPage)}>
                  <AntDesign name="left" size={24} color="white" />
         </TouchableOpacity>
-
-
-
     )
 }
 
@@ -24,10 +21,7 @@ const styles = StyleSheet.create({
         top: 25,
         marginLeft: 10,
         width: 20,
-        
     },
-    
-
 })
 
 

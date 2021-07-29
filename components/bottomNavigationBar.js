@@ -27,7 +27,6 @@ const BottomNavigationBar = (props) => {
 
 const styles = StyleSheet.create({
     container: {
-
         height: 72,
         backgroundColor: '#D0112B',
         flexDirection: 'row',

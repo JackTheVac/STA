@@ -19,9 +19,9 @@ const SignInScreen = ({navigation}) => {
       navigation.navigate('rewardsScreen')  
       //.catch((error) => alert(error));
      
-    }catch(err){
+    }
+    catch(err){
       setError(err.message)
-     
     } 
   }
 
@@ -84,85 +84,79 @@ const SignInScreen = ({navigation}) => {
             source =  {require('../assets/images/orange.png')}
             style = {styles.orange}
           />
-
-          
-
-
        </View>
        </>
-       
     )
 }
 
 const styles = StyleSheet.create({
-    container: {
-        backgroundColor: '#fff',
-      },
+  container: {
+    backgroundColor: '#fff',
+  },
 
-      inputContainer: {
-          backgroundColor: '#fff',
-      },
+  inputContainer: {
+    backgroundColor: '#fff',
+  },
 
-      inputBoxOne: {
-        marginTop: 50,
-      },
-      inputBoxTwo: {
-        marginTop: 42,
-      },
-      submitButton: {
-        marginTop: 52,
-        alignItems: 'center',
-        //borderWidth: 1,
-        backgroundColor: '#fff'
-      },
-      strawberry: {
-        height: 227.52,
-        width: 250,
-        transform: [{rotate: '-9.73 deg'}],
-        //borderWidth: 2,
-        right: 35,
-        bottom: 10,
-      },
-      orange: {
-        width: 250,
-        height: 250,
-        //borderWidth: 1,
-        bottom: 130,
-        left: 180,
-        transform: [{rotate: '7.85 deg'}],
-       
-      },
+  inputBoxOne: {
+    marginTop: 50,
+  },
 
-      submitContainer: {
-        backgroundColor: '#fff',
-      },
-      buttonBorder: {
-        backgroundColor: '#D0112B',
-        height: 40,
-        width: 127,
-        borderWidth: 1,
-        borderRadius: 10,
-    },
-      titleText: {    
-        textAlign: 'center',
-        fontWeight: 'bold',
-        marginTop: 5,
-        fontSize: 20,
-        color: '#fff'
-        
-        
+  inputBoxTwo: {
+    marginTop: 42,
+  },
 
-    },
-    errorMessage: {
-      color:'red',
-      //borderWidth: 3,
-      alignSelf: 'center',
-      paddingTop: 20,
-    }
+  submitButton: {
+    marginTop: 52,
+    alignItems: 'center',
+    //borderWidth: 1,
+    backgroundColor: '#fff'
+  },
 
+  strawberry: {
+    height: 227.52,
+    width: 250,
+    transform: [{rotate: '-9.73 deg'}],
+    //borderWidth: 2,
+    right: 35,
+    bottom: 10,
+  },
 
+  orange: {
+    width: 250,
+    height: 250,
+    //borderWidth: 1,
+    bottom: 130,
+    left: 180,
+    transform: [{rotate: '7.85 deg'}],
+  },
 
-    
+  submitContainer: {
+   backgroundColor: '#fff',
+  },
+
+  buttonBorder: {
+    backgroundColor: '#D0112B',
+    height: 40,
+    width: 127,
+    borderWidth: 1,
+    borderRadius: 10,
+  },
+
+  titleText: {    
+    textAlign: 'center',
+    fontWeight: 'bold',
+    marginTop: 5,
+    fontSize: 20,
+    color: '#fff'
+  },
+
+  errorMessage: {
+    color:'red',
+    //borderWidth: 3,
+    alignSelf: 'center',
+    paddingTop: 20,
+  } 
 });
 
 export default SignInScreen;
