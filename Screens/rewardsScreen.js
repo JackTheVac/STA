@@ -10,31 +10,24 @@ import { Dimensions } from 'react-native';
 const rewardsScreen = () =>{
     return(
         <View>
-        <SafeAreaView style = {styles.container}>
-            
-            <View style = {styles.stampBarSpace}>
-                <Text style = {styles.textContainer}> Stamp Count: {getStampCount()} </Text>
-                    <StampBar stampCount = {2}/>
-                <Text style = {styles.textContainer}> Purchase at least {10 - getStampCount()} more drinks to receive your free drink! </Text>
-            </View>
-
+            <SafeAreaView style = {styles.container}>
+                
+                <View style = {styles.stampBarSpace}>
+                    <Text style = {styles.textContainer}> Stamp Count: {getStampCount()} </Text>
+                        <StampBar stampCount = {getStampCount()}/>
+                    <Text style = {styles.textContainer}> {message()} </Text>
+                </View>
 
                 <View style = {styles.qrContainer}>
                     <QR uuid='userUUID'/>
                 </View>
 
-                <View style = {styles.bottomContainer}>
-                    <BottomNavigationBar/>
-                </View>
-            
-            <View style = {styles.qrContainer}>
-                <QR uuid='userUUID'/>
+            </SafeAreaView>
+
+            <View style = {styles.bottomContainer}>
+                <BottomNavigationBar/>
             </View>
-            
-            
-            
-        </SafeAreaView>
-        <BottomNavigationBar/>
+
         </View>
         
     );
@@ -42,6 +35,19 @@ const rewardsScreen = () =>{
 
 function getStampCount() {
     return 2
+    // actual code will pull from firebase
+}
+
+function message(){
+    if (getStampCount() == 9){
+        return 'Purchase at least 1 more drink to receive your next free drink!'
+    }
+    else if(getStampCount() < 9){
+        return 'Purchase at least ' + (10 - getStampCount()) + ' more drinks to receive your next free drink!'
+    }
+    else{
+        return 'You\'ve earned a free drink on your next visit!'
+    }
 }
 
 const styles = StyleSheet.create({
@@ -49,20 +55,20 @@ const styles = StyleSheet.create({
         backgroundColor: 'white',
         width: '100%',
         height: Dimensions.get('window').height - 72,
+        justifyContent: 'space-around',
     },
     stampBarSpace: {
-        justifyContent: 'space-between',
+        justifyContent: 'space-around',
     },
     qrContainer: {
-        justifyContent: 'space-between',
-        top: 50,
     },
     textContainer: {
         textAlign: 'center',
+        borderWidth: 20,
+        borderColor: 'white'
     },
     navigationFooter: {
         borderWidth: 20,
-        
     },
 });
 
