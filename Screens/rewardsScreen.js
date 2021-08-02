@@ -23,14 +23,8 @@ const rewardsScreen = () =>{
                     <QR uuid='userUUID'/>
                 </View>
 
-                <View style = {styles.bottomContainer}>
-                    <BottomNavigationBar/>
-                </View>
-            
-            <View style = {styles.qrContainer}>
-                <QR uuid='userUUID'/>
-            </View>
-            
+               
+        
             
             
         </SafeAreaView>
@@ -54,8 +48,9 @@ const styles = StyleSheet.create({
         justifyContent: 'space-between',
     },
     qrContainer: {
-        justifyContent: 'space-between',
-        top: 50,
+        paddingTop: 150,
+        alignItems: 'center',
+        borderWidth: 10,
     },
     textContainer: {
         textAlign: 'center',
