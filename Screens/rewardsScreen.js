@@ -7,7 +7,7 @@ import BottomNavigationBar from '../components/bottomNavigationBar';
 import { Dimensions } from 'react-native';
 
 
-const rewardsScreen = () =>{
+const RewardsScreen = () =>{
     return(
         <View>
             <SafeAreaView style = {styles.container}>
@@ -72,5 +72,5 @@ const styles = StyleSheet.create({
     },
 });
 
-export default rewardsScreen;
+export default RewardsScreen;
 

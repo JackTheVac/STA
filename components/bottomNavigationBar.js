@@ -3,11 +3,15 @@ import React from 'react';
 import {  TouchableOpacity,SafeAreaView, View, Image, StyleSheet, Text, Animated} from 'react-native';
 import { AntDesign } from '@expo/vector-icons'
 import { Dimensions } from 'react-native';
+import { useNavigation } from '@react-navigation/native';
 
 const BottomNavigationBar = (props) => {
+    const navigation = useNavigation();
     return (       
         <View style = {styles.container}>
-                <TouchableOpacity style = {styles.button}>
+                <TouchableOpacity style = {styles.button}
+                    onPress = { ()=> navigation.navigate("menuScreen")}
+                >         
                     <AntDesign name="book" size={32} color="white"/>
                     <Text>Menu</Text>
                 </TouchableOpacity>

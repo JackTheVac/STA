@@ -5,6 +5,7 @@ import {  SafeAreaView, View, Image, StyleSheet, Text, Animated} from 'react-nat
 import {enableScreens} from 'react-native-screens'
 
 
+
 enableScreens();
 
 import { NavigationContainer } from '@react-navigation/native';
@@ -15,6 +16,7 @@ import FirstMainScreen from './Screens/firstMain';
 import SignInScreen from './Screens/signIn';
 import SignUpScreen from './Screens/signUp';
 import RewardsScreen from './Screens/rewardsScreen';
+import MenuScreen from './Screens/menuScreen';
 
 
 const Stack = createNativeStackNavigator();
@@ -23,11 +25,14 @@ export default function App() {
   return (
     <NavigationContainer>
       <Stack.Navigator screenOptions = {{headerShown: false}}
-          initialRouteName = {'rewardsScreen'}>
+                       initialRouteName = {'rewardsScreen'}
+                       
+                       >
         <Stack.Screen name = 'firstMainScreen' component = {FirstMainScreen} />
         <Stack.Screen name = 'signInScreen' component = {SignInScreen} />
         <Stack.Screen name = 'signUpScreen' component = {SignUpScreen} />
-        <Stack.Screen name = 'rewardsScreen' component = {RewardsScreen} />
+        <Stack.Screen name = 'rewardsScreen' component = {RewardsScreen} options = {{gestureDirection: 'vertical'}}/>
+        <Stack.Screen name = 'menuScreen' component = {MenuScreen}  options= {{gestureDirection :'SlideFromLeftIOS'}}/>
       </Stack.Navigator>
 
     </NavigationContainer>
