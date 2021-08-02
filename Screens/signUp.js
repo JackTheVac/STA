@@ -25,7 +25,6 @@ const SignUpScreen = ({navigation}) => {
       } 
     }
 
-    
     return (
         <>
         <View style = {styles.container}>
@@ -81,27 +80,15 @@ const SignUpScreen = ({navigation}) => {
               source = {require('../assets/images/boba_icon.png')} 
               style = {styles.boba_icon}
             /> 
-                
-
 
         </View>
-           
 
         {
           error?
           <Text style = {{color:'red'}}>{error}</Text>
           :null
         }
-
-
-
-
-
         </>
-              
-
-
-
     )
 }
 
@@ -110,43 +97,42 @@ const styles = StyleSheet.create({
     backgroundColor: '#fff',
   },
     
-    inputContainer: {
-      flexDirection: 'column',
-      marginTop: 30,
-      backgroundColor: '#fff',
+  inputContainer: {
+    flexDirection: 'column',
+    marginTop: 30,
+    backgroundColor: '#fff',
 
- 
-    },
-    inputOne:{
-      marginTop: 10,
+  },
+  inputOne:{
+    marginTop: 10,
 
-    },
-    submitButton: {
-      marginTop: 52,
-      alignItems: 'center',
-      //borderWidth: 1,
-      backgroundColor: '#fff'
-    },
+  },
+  submitButton: {
+    marginTop: 52,
+    alignItems: 'center',
+    //borderWidth: 1,
+    backgroundColor: '#fff'
+  },
 
-    boba_icon : {
-      width: 378,
-      height: 372,
-      transform: [{rotate: '15.91 deg'}],
-      //borderWidth: 5,
-      right: 130,
-      bottom : -10,
-    },
+  boba_icon : {
+    width: 378,
+    height: 372,
+    transform: [{rotate: '15.91 deg'}],
+    //borderWidth: 5,
+    right: 130,
+    bottom : -10,
+  },
 
-    buttonContainer: {
-      backgroundColor: '#fff',
-    },
-    
-    buttonBorder: {
-      backgroundColor: '#D0112B',
-      height: 40,
-      width: 127,
-      borderWidth: 1,
-      borderRadius: 10,
+  buttonContainer: {
+    backgroundColor: '#fff',
+  },
+  
+  buttonBorder: {
+    backgroundColor: '#D0112B',
+    height: 40,
+    width: 127,
+    borderWidth: 1,
+    borderRadius: 10,
   },
 
   titleText: {    
@@ -162,11 +148,6 @@ const styles = StyleSheet.create({
     alignSelf: 'center',
     top: 20,
   }
-      
-      
-    
-    
-      
 });
 
 export default SignUpScreen;

@@ -14,12 +14,7 @@ const SubtmitButton = (props) => {
                 <Text style = {styles.titleText}>{props.title}</Text>
             </TouchableOpacity>
         </View>
-
     )
-
-
-
-
 }
 
 
@@ -27,6 +22,7 @@ const styles = StyleSheet.create({
     container: {
         backgroundColor: '#fff',
     },
+    
     buttonBorder: {
         backgroundColor: '#D0112B',
         height: 40,
@@ -34,15 +30,13 @@ const styles = StyleSheet.create({
         borderWidth: 1,
         borderRadius: 10,
     },
+
     titleText: {    
         textAlign: 'center',
         fontWeight: 'bold',
         marginTop: 5,
         fontSize: 20,
         color: '#fff'
-        
-        
-
     },
 })
 

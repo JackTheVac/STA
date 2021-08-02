@@ -12,12 +12,6 @@ const Banner = (props) => {
               <Text style = {styles.titleText} >{props.title}</Text>
             </View>
         </View>
-        
-
-
-        
-
-
     )
 }
 

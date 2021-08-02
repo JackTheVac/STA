@@ -6,7 +6,7 @@ import { Dimensions } from 'react-native';
 const QR = (props) => {
     return (
     <View style = {styles.container}>
-        <QRCode value={props.uuid} size = {Dimensions.get('window').width * 0.6}/>
+        <QRCode value={props.uuid} size = {Dimensions.get('window').width * 0.65}/>
     </View>
     );
 }

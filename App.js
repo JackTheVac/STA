@@ -1,5 +1,3 @@
-
-
 import { StatusBar } from 'expo-status-bar';
 import React from 'react';
 import {  SafeAreaView, View, Image, StyleSheet, Text, Animated} from 'react-native';
@@ -33,14 +31,6 @@ export default function App() {
       </Stack.Navigator>
 
     </NavigationContainer>
-
-
-
-
-
-
-
-
     // <NavigationContainer>
     //   <Stack.Navigator screenOptions={{headerShown: false}}>
 
@@ -78,9 +68,5 @@ const styles = StyleSheet.create({
     height: 306,
     alignItems: 'center',
     marginLeft: 60,
-
-
-
   }
-
 });
