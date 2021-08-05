@@ -7,7 +7,10 @@ import BottomNavigationBar from '../components/bottomNavigationBar';
 import { Dimensions } from 'react-native';
 import { useNavigation } from '@react-navigation/native';
 import CategoryBox from '../components/categoryBox';
-
+import FruitIcon from '../assets/images/fruitLogo.png'
+import MilkTeaIcon from '../assets/images/milkteaLogo.png'
+import FreshMilkIcon from '../assets/images/milk.png'
+import SignatureIcon from '../assets/images/lemon.png'
 
 const MenuScreen = () => {
     return(
@@ -22,14 +25,38 @@ const MenuScreen = () => {
                 <ScrollView>
                     <View style = {styles.firstRow}>
                         <View style = {styles.fruitTea}>
-                            <CategoryBox title = 'Fruit Tea'/> 
+                            <CategoryBox 
+                                title = 'Fruit Tea' 
+                                icon = {FruitIcon} 
+                                style = {{height: 111, width: 97, alignSelf:  'center', marginTop: 5}} /> 
                         </View>
 
                         <View style = {styles.milkTea}>
-                            <CategoryBox title = 'Milk Tea'/> 
+                            <CategoryBox 
+                                title = 'Milk Tea'
+                                icon = {MilkTeaIcon}
+                                style = {{height: 110, width: 119, alignSelf: 'center', marginTop: 5}}
+                                /> 
                         </View>
-                        
-                    
+                    </View>
+                    <View style = {styles.secondRow}>
+                        <View style = {styles.freshMilk}>
+                            <CategoryBox
+                                title = 'Fresh Milk'
+                                icon = {FreshMilkIcon}
+                                style = {{height:110, width: 106, alignSelf: 'center', marginTop: 7}}
+                                />
+                        </View>
+
+                        <View style = {styles.signature}>
+                            <CategoryBox
+                                title = 'Signatures'
+                                icon = {SignatureIcon}
+                                style = {{height: 110, width: 117, alignSelf: 'center', marginTop: 5}}
+                                />
+                        </View>
+
+
                     </View>
                     
                 </ScrollView> 
@@ -56,6 +83,7 @@ const styles = StyleSheet.create({
         width: '100%',
         height: Dimensions.get('window').height - 144,
         justifyContent: 'space-around',
+        alignItems: 'center'
         //borderWidth: 10
     },
     container: {
@@ -79,14 +107,21 @@ const styles = StyleSheet.create({
         flexDirection: 'row'
     },
     fruitTea:{
-       marginLeft: 21,
+      
+       paddingRight: 28,
        marginTop: 45,  
     },
     milkTea: {
         marginTop: 45,
-        marginRight: 33,
+        paddingLeft: 28,
        
     },
+    secondRow: {
+        justifyContent: 'space-between',
+        flexDirection: 'row',
+        marginTop: 40,
+        //borderWidth: 5,
+    }
 
 });
 

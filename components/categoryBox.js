@@ -4,11 +4,13 @@ import { TouchableOpacity, SafeAreaView, View, Image, StyleSheet, Text, Animated
 import { AntDesign } from '@expo/vector-icons'
 import { useNavigation } from '@react-navigation/native';
 
+
 const CategoryBox = (props) => {
     const navigation = useNavigation();
     return(
     <View>
          <TouchableOpacity style = {styles.box}>
+            <Image source = {props.icon} style = {{...props.style}} />
             <Text style = {styles.titleText}>{props.title}</Text>
         </TouchableOpacity>
     </View>
@@ -26,11 +28,12 @@ const styles = StyleSheet.create({
         borderRadius: 20,
     },
     titleText: {
+        //borderWidth: 10,
         alignSelf: 'center',
-        paddingTop: 128,
+        paddingTop: 10,
         fontSize: 20,
-    }
-
+        
+    },
 
 
 

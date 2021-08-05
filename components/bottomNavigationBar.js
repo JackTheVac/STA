@@ -16,7 +16,8 @@ const BottomNavigationBar = (props) => {
                     <Text>Menu</Text>
                 </TouchableOpacity>
 
-                <TouchableOpacity style = {styles.button}>
+                <TouchableOpacity style = {styles.button}
+                    onPress = { ()=> navigation.navigate("rewardsScreen")}>
                     <AntDesign name="star" size={32} color="white" />
                     <Text>Rewards</Text>
                 </TouchableOpacity>
