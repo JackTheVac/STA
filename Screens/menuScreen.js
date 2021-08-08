@@ -11,6 +11,9 @@ import FruitIcon from '../assets/images/fruitLogo.png'
 import MilkTeaIcon from '../assets/images/milkteaLogo.png'
 import FreshMilkIcon from '../assets/images/milk.png'
 import SignatureIcon from '../assets/images/lemon.png'
+import BrewedTeaIcon from '../assets/images/brewedTeaLogo.png'
+import IceBlendedIcon from '../assets/images/iceBlendedLogo.png'
+import SeasonalIcon from '../assets/images/seasonalLogo.png'
 
 const MenuScreen = () => {
     return(
@@ -22,7 +25,9 @@ const MenuScreen = () => {
                 </View>
             <SafeAreaView style = {styles.SAVcontainer}>
 
-                <ScrollView>
+                <ScrollView
+                    showsVerticalScrollIndicator={false}
+                    showsHorizontalScrollIndicator={false}>
                     <View style = {styles.firstRow}>
                         <View style = {styles.fruitTea}>
                             <CategoryBox 
@@ -30,7 +35,6 @@ const MenuScreen = () => {
                                 icon = {FruitIcon} 
                                 style = {{height: 111, width: 97, alignSelf:  'center', marginTop: 5}} /> 
                         </View>
-
                         <View style = {styles.milkTea}>
                             <CategoryBox 
                                 title = 'Milk Tea'
@@ -55,8 +59,31 @@ const MenuScreen = () => {
                                 style = {{height: 110, width: 117, alignSelf: 'center', marginTop: 5}}
                                 />
                         </View>
+                    </View>
 
+                    <View style = {styles.thirdRow}>
+                        <View style = {styles.brewedTea}>
+                            <CategoryBox
+                                title = 'Brewed Tea'
+                                icon = {BrewedTeaIcon}
+                                style = {{height:100, width: 100, alignSelf: 'center', marginTop: 10}}
+                                />
+                        </View>
+                        <View style = {styles.iceBlended}>
+                            <CategoryBox
+                                title = 'Ice Blended'
+                                icon = {IceBlendedIcon}
+                                style = {{height: 103, width: 100, alignSelf:'center', marginTop: 7}}
+                                />
+                        </View>
+                    </View>
 
+                    <View style = {styles.fourthRow}>
+                        <CategoryBox
+                            title = 'Seasonal'
+                            icon = {SeasonalIcon}
+                            style = {{height: 100, width: 100, alignSelf: 'center', marginTop: 10}}
+                            />
                     </View>
                     
                 </ScrollView> 
@@ -83,7 +110,7 @@ const styles = StyleSheet.create({
         width: '100%',
         height: Dimensions.get('window').height - 152,
         justifyContent: 'space-around',
-        alignItems: 'center'
+        alignItems: 'center',
         //borderWidth: 10
     },
     container: {
@@ -103,6 +130,7 @@ const styles = StyleSheet.create({
       fontSize: 20,
     },
     firstRow: {
+        marginTop: -20,
         justifyContent: 'space-between',
         flexDirection: 'row'
     },
@@ -121,7 +149,21 @@ const styles = StyleSheet.create({
         flexDirection: 'row',
         marginTop: 40,
         //borderWidth: 5,
+    },
+    thirdRow: {
+        justifyContent: 'space-between',
+        flexDirection: 'row',
+        marginTop: 40,
+        //borderWidth: 5,
+    },
+    fourthRow: {
+        justifyContent: 'space-between',
+        flexDirection: 'row',
+        marginTop: 40,
+        marginBottom: 20
+        //borderWidth: 5,
     }
+
 
 });
 
