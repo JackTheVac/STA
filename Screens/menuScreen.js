@@ -16,9 +16,9 @@ const MenuScreen = () => {
     return(
         <View style = {styles.bigContainer}>
              <View style={styles.container}>
-                    <View style = {styles.header}>
+                    <SafeAreaView style = {styles.header}>
                         <Text style = {styles.titleText} >Menu</Text>
-                    </View>
+                    </SafeAreaView>
                 </View>
             <SafeAreaView style = {styles.SAVcontainer}>
 
@@ -81,7 +81,7 @@ const styles = StyleSheet.create({
     SAVcontainer: {
         backgroundColor: 'white',
         width: '100%',
-        height: Dimensions.get('window').height - 144,
+        height: Dimensions.get('window').height - 152,
         justifyContent: 'space-around',
         alignItems: 'center'
         //borderWidth: 10
@@ -91,7 +91,7 @@ const styles = StyleSheet.create({
         backgroundColor: '#fff',
     },
     header: {
-        height: 72,
+        height: 80,
         //flexDirection: 'row',
         backgroundColor: '#D0112B',
         justifyContent: 'center',
