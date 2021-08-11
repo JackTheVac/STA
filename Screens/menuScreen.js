@@ -33,13 +33,15 @@ const MenuScreen = () => {
                             <CategoryBox 
                                 title = 'Fruit Tea' 
                                 icon = {FruitIcon} 
-                                style = {{height: 111, width: 97, alignSelf:  'center', marginTop: 5}} /> 
+                                style = {{height: 111, width: 97, alignSelf:  'center', marginTop: 5}}
+                                next = 'fruitTeaScreen' /> 
                         </View>
                         <View style = {styles.milkTea}>
                             <CategoryBox 
                                 title = 'Milk Tea'
                                 icon = {MilkTeaIcon}
                                 style = {{height: 110, width: 119, alignSelf: 'center', marginTop: 5}}
+                                next = 'milkTeaScreen'
                                 /> 
                         </View>
                     </View>
@@ -49,6 +51,7 @@ const MenuScreen = () => {
                                 title = 'Fresh Milk'
                                 icon = {FreshMilkIcon}
                                 style = {{height:110, width: 106, alignSelf: 'center', marginTop: 7}}
+                                next = 'freshMilkScreen'
                                 />
                         </View>
 
@@ -57,6 +60,7 @@ const MenuScreen = () => {
                                 title = 'Signatures'
                                 icon = {SignatureIcon}
                                 style = {{height: 110, width: 117, alignSelf: 'center', marginTop: 5}}
+                                next = 'signatureScreen'
                                 />
                         </View>
                     </View>
@@ -67,6 +71,7 @@ const MenuScreen = () => {
                                 title = 'Brewed Tea'
                                 icon = {BrewedTeaIcon}
                                 style = {{height:100, width: 100, alignSelf: 'center', marginTop: 10}}
+                                next = 'brewedTeaScreen'
                                 />
                         </View>
                         <View style = {styles.iceBlended}>
@@ -74,6 +79,7 @@ const MenuScreen = () => {
                                 title = 'Ice Blended'
                                 icon = {IceBlendedIcon}
                                 style = {{height: 103, width: 100, alignSelf:'center', marginTop: 7}}
+                                next = 'iceBlendedScreen'
                                 />
                         </View>
                     </View>
@@ -83,6 +89,7 @@ const MenuScreen = () => {
                             title = 'Seasonal'
                             icon = {SeasonalIcon}
                             style = {{height: 100, width: 100, alignSelf: 'center', marginTop: 10}}
+                            next = 'seasonalScreen'
                             />
                     </View>
                     

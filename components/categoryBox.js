@@ -9,7 +9,8 @@ const CategoryBox = (props) => {
     const navigation = useNavigation();
     return(
     <View>
-         <TouchableOpacity style = {styles.box}>
+         <TouchableOpacity style = {styles.box}
+            onPress = { ()=> navigation.navigate(props.next)}>
             <Image source = {props.icon} style = {{...props.style}} />
             <Text style = {styles.titleText}>{props.title}</Text>
         </TouchableOpacity>
