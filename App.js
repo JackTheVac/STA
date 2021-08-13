@@ -24,7 +24,7 @@ import SignatureScreen from './Screens/DrinkScreens/SignatureScreen';
 import BrewedTeaScreen from './Screens/DrinkScreens/BrewedTeaScreen';
 import IceBlendedScreen from './Screens/DrinkScreens/IceBlendedScreen';
 import SeasonalScreen from './Screens/DrinkScreens/SeasonalScreen';
-
+import UploadScreen from './Screens/uploadScreen';
 
 const Stack = createNativeStackNavigator();
 
@@ -32,7 +32,7 @@ export default function App() {
   return (
     <NavigationContainer>
       <Stack.Navigator screenOptions = {{headerShown: false}}
-                       initialRouteName = {'rewardsScreen'}
+                       initialRouteName = {'uploadScreen'}
                        
                        >
         <Stack.Screen name = 'firstMainScreen' component = {FirstMainScreen} />
@@ -48,6 +48,7 @@ export default function App() {
         <Stack.Screen name = 'brewedTeaScreen' component = {BrewedTeaScreen} />
         <Stack.Screen name = 'iceBlenededScreen' component = {IceBlendedScreen} />
         <Stack.Screen name = 'seasonalScreen' component = {SeasonalScreen} />
+        <Stack.Screen name = 'uploadScreen' component = {UploadScreen} />
 
       </Stack.Navigator>
 
