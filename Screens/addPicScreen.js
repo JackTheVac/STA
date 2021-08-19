@@ -7,6 +7,8 @@ import { useNavigation } from '@react-navigation/native';
 
 const AddPicScreen = () => {
     const navigation = useNavigation();
+
+    
   
   const [image, setImage] = useState(null);
 
@@ -21,6 +23,8 @@ const AddPicScreen = () => {
     })();
   }, []);
 
+
+ 
   const pickImage = async () => {
     let result = await ImagePicker.launchImageLibraryAsync({
       mediaTypes: ImagePicker.MediaTypeOptions.All,
@@ -29,14 +33,14 @@ const AddPicScreen = () => {
       quality: 1,
     });
 
-    console.log(result);
+    //console.log(result);
 
     if (!result.cancelled) {
       setImage(result.uri);
       
     }
-
-    console.log(image)
+    console.log(result.uri)
+    
   };
 
   return (
@@ -53,7 +57,8 @@ const AddPicScreen = () => {
         <>
         <Image source={{ uri: image }} style={{ width: 200, height: 200 }} />
         <Button  title = "next"
-                 onPress = { ()=> navigation.navigate('upload', {image})}/>
+                 onPress = { ()=> navigation.navigate('upload', {image})}
+                 link = {image}/>
         </>
         }
         </View>

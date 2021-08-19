@@ -1,22 +1,23 @@
 import React, { useState, useEffect } from 'react';
 import { Button, Image, View, Platform, StyleSheet, SafeAreaView, Text, TextInput, TouchableOpacity} from 'react-native';
 import {Picker} from '@react-native-picker/picker';
-
+import { useNavigation } from '@react-navigation/native';
 import firebase from 'firebase';
 require("firebase/firestore")
 require("firebase/firebase-storage")
 
 const Upload = (props) =>
 {
-    
+    const navigation = useNavigation();
 
     const [name, setName] = useState ("");
     const [price, setPrice] = useState("")
     const [categories, setCategories] = useState("")
+    const [uploading, setUploading] = useState(false)
 
     const uploadImage = async() => {
         const uri = props.route.params.image;
-        const childPath = `drink/${categories}/${name}${Math.random().toString(36)}`
+        const childPath = `drink/${categories}/${name}_${Math.random().toString(36)}`
         
 
         const response = await fetch(uri);
@@ -29,12 +30,19 @@ const Upload = (props) =>
                     .put(blob);
 
         const taskProgress = snapshot => {
+            setUploading(true);
             console.log(`transfereed: ${snapshot.bytesTransferred}`)
+            
+            
         }
 
         const taskCompleted = () => {
             task.snapshot.ref.getDownloadURL().then((snapshot) => {
-                console.log(snapshot)
+                savePostData(snapshot);
+                console.log(snapshot);
+                
+                setUploading(false);
+                console.log(uploading);
             })
         }
 
@@ -46,6 +54,22 @@ const Upload = (props) =>
 
     }
     
+    const savePostData = (downloadURL) => {
+        firebase.firestore().collection('menu')
+                            .doc('categories')
+                            .collection(categories)
+                            .doc(name)                       
+                            .set({
+                                downloadURL,
+                                name,
+                                price,
+                                categories,
+                                //creataion: firebase.firestore().FieldValue.serverTimestamp()
+                            }).then((function () {
+                                navigation.navigate('addPicScreen')
+                            }))
+
+    }
 
     return(
         <View>
@@ -56,7 +80,7 @@ const Upload = (props) =>
             </View>
 
             <View style = {styles.imageBox}>
-                <Image style = {styles.image} source = {{uri: props.route.params.image}} />
+                <Image style = {styles.image} source = {props.link} />
             </View>
 
             <TextInput placeholder = "enter drink name" style = {styles.drinkName} onChangeText = {(name) => setName(name)}/>
@@ -70,15 +94,22 @@ const Upload = (props) =>
                 }>
             <Picker.Item label="Fruit Tea" value="fruitTea" />
             <Picker.Item label="Milk Tea" value="milkTea" />
-            <Picker.Item label="Milk Tea1" value="milkTea1" />
-            <Picker.Item label="Milk Tea2" value="milkTea2" />
-            <Picker.Item label="Milk Tea3" value="milkTea3" />
+            <Picker.Item label="Test" value="test" />
+
             </Picker>
 
+            
+
+            {!uploading ? 
             <TouchableOpacity title = "Upload" onPress = {() => uploadImage()} style = {styles.uploadButton}>
                 <Text style = {styles.buttonText}>Upload</Text>
             </TouchableOpacity>
-
+            :
+            <View style = {styles.uploadBox} >
+                 <Text style = {styles.uploadingText}>
+                     Uploading...Please Wait
+                </Text>
+            </View>}
             
 
             
@@ -149,6 +180,13 @@ const styles = StyleSheet.create({
         //borderWidth: 1,
         height: 50,
         width: 200,
+        alignSelf: 'center'
+    },
+    uploadBox: {
+        top: 150
+    },
+    uploadingText:
+    {
         alignSelf: 'center'
     }
 })
