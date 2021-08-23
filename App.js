@@ -35,7 +35,7 @@ export default function App() {
   return (
     <NavigationContainer>
       <Stack.Navigator screenOptions = {{headerShown: false}}
-                       initialRouteName = {'addPicScreen'}
+                       initialRouteName = {'firstMainScreen'}
                        
                        >
         <Stack.Screen name = 'firstMainScreen' component = {FirstMainScreen} />
