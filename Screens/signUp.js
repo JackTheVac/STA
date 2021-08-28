@@ -5,7 +5,8 @@ import Banner from '../components/banner';
 import InputBox from '../components/inputBox';
 import Input from 'react-native-elements'
 import { useNavigation } from '@react-navigation/native';
-import {auth} from '../firebase'
+import {db, auth} from '../firebase'
+import * as firebase from 'firebase';
 
 
 
@@ -18,6 +19,9 @@ const SignUpScreen = ({navigation}) => {
       try{
         //auth().createUserWithEmailAndPassword(email,password)
         await auth.createUserWithEmailAndPassword(email,password)
+        db.collection("users").doc(user.uid).set({
+          stampCount: 0
+        })
         navigation.navigate('rewardsScreen')  
         
       }catch(err){

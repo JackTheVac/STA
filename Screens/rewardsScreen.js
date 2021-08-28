@@ -5,6 +5,7 @@ import { View, Text, StyleSheet } from 'react-native';
 import { SafeAreaView } from 'react-native';
 import BottomNavigationBar from '../components/bottomNavigationBar';
 import { Dimensions } from 'react-native';
+import { db, auth } from '../firebase';
 
 
 const RewardsScreen = () =>{

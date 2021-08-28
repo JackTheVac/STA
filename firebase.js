@@ -20,11 +20,17 @@ const firebaseConfig = {
     app = firebase.initializeApp(firebaseConfig);
   }
   else{
-      app =firebase.app();
+      app = firebase.app();
   }
 
   const db = app.firestore();
   const auth = firebase.auth();
+
+  firebase.auth().onAuthStateChanged(function(user) {
+    if (user) {
+      global.user = firebase.auth().currentUser;
+    }
+  });
 
  
   export { db, auth };
