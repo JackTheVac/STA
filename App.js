@@ -26,6 +26,7 @@ import IceBlendedScreen from './Screens/DrinkScreens/IceBlendedScreen';
 import SeasonalScreen from './Screens/DrinkScreens/SeasonalScreen';
 import AddPicScreen from './Screens/addPicScreen';
 import Upload from './Screens/upload';
+import GeneralDrinkScreen from './Screens/DrinkScreens/generalDrinkScreen';
 
 
 
@@ -38,11 +39,11 @@ export default function App() {
                        initialRouteName = {'addPicScreen'}
                        
                        >
-        <Stack.Screen name = 'firstMainScreen' component = {FirstMainScreen} />
+        <Stack.Screen name = 'firstMainScreen' component = {FirstMainScreen} options={{gestureEnabled: false}} />
         <Stack.Screen name = 'signInScreen' component = {SignInScreen} />
         <Stack.Screen name = 'signUpScreen' component = {SignUpScreen} />
-        <Stack.Screen name = 'rewardsScreen' component = {RewardsScreen} options = {{gestureDirection: 'vertical'}}/>
-        <Stack.Screen name = 'menuScreen' component = {MenuScreen}  options= {{gestureDirection :'SlideFromLeftIOS'}}/>
+        <Stack.Screen name = 'rewardsScreen' component = {RewardsScreen} options={{gestureEnabled: false}}/>
+        <Stack.Screen name = 'menuScreen' component = {MenuScreen}  />
         
         <Stack.Screen name = 'fruitTeaScreen' component = {FruitTeaScreen} />
         <Stack.Screen name = 'milkTeaScreen' component = {MilkTeaScreen} />
@@ -53,7 +54,7 @@ export default function App() {
         <Stack.Screen name = 'seasonalScreen' component = {SeasonalScreen} />
         <Stack.Screen name = 'addPicScreen' component = {AddPicScreen} />
         <Stack.Screen name = 'upload' component = {Upload} />
-        
+        <Stack.Screen name = 'generalDrinkScreen' component = {GeneralDrinkScreen} />
 
       </Stack.Navigator>
 

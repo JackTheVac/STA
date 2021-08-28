@@ -2,15 +2,21 @@ import React, { useState, useEffect } from 'react';
 import { Button, Image, View, Platform, StyleSheet, SafeAreaView, Text} from 'react-native';
 import * as ImagePicker from 'expo-image-picker';
 import { useNavigation } from '@react-navigation/native';
+import * as firebase from 'firebase'
+import { db } from '../firebase';
 
 
+//const testVar = 'lol123';
 
 const AddPicScreen = () => {
     const navigation = useNavigation();
 
-    
+  const [testVar, setTestVar] = useState('');
   
   const [image, setImage] = useState(null);
+  const [imagePull, setImagePull] = useState(null);
+
+  
 
   useEffect(() => {
     (async () => {
@@ -43,6 +49,38 @@ const AddPicScreen = () => {
     
   };
 
+
+
+  //WORKING, setting imagePull to lol123's image
+  const pullImage = async() => {
+    
+    const imageRef = db.collection('menu').doc('categories').collection('test').doc('lol123');
+    const finalImage = await imageRef.get();
+
+    if(!finalImage.exists)
+    {
+      console.log("error");
+    }else {
+      console.log('Document Data:', finalImage.data().downloadURL);
+      setImagePull(finalImage.data().downloadURL);
+      console.log(imagePull);
+    }
+
+
+    
+  }
+
+
+  //just hardcode
+  const testVariable = async() => {
+    setTestVar('awdadawd6dwa5')
+    navigation.navigate('generalDrinkScreen', {
+      testVar1 : 'lol123'
+
+    });
+
+  }
+
   return (
 
     <View>
@@ -50,8 +88,10 @@ const AddPicScreen = () => {
                         <SafeAreaView style = {styles.header}>
                             <Text style = {styles.titleText} >Choose a Picture</Text>
                         </SafeAreaView>
-                    </View>
+        </View>
         <View style={{alignItems: 'center', justifyContent: 'center' }}>
+        <Button title = "test for pulling"  onPress = {pullImage}/>
+        <Button title = 'test for variable across screen' onPress = {testVariable} />
         <Button title="Pick an image from camera roll" onPress={pickImage} />
         {image && 
         <>
@@ -61,6 +101,7 @@ const AddPicScreen = () => {
                  link = {image}/>
         </>
         }
+       
         </View>
     </View>
   );

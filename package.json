@@ -34,7 +34,8 @@
     "react-native-screens": "~3.4.0",
     "react-native-splash-screen": "^3.2.0",
     "react-native-svg": "^12.1.1",
-    "react-native-web": "^0.17.1"
+    "react-native-web": "^0.17.1",
+    "redux": "^4.1.1"
   },
   "devDependencies": {
     "@babel/core": "~7.9.0"
