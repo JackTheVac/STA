@@ -36,7 +36,7 @@ export default function App() {
   return (
     <NavigationContainer>
       <Stack.Navigator screenOptions = {{headerShown: false}}
-                       initialRouteName = {'firstMainScreen'}
+                       initialRouteName = {'menuScreen'}
                        
                        >
         <Stack.Screen name = 'firstMainScreen' component = {FirstMainScreen} options={{gestureEnabled: false}} />

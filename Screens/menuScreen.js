@@ -1,7 +1,7 @@
 import React from 'react';
 import QR from '../components/qrBox';
 import StampBar from '../components/progressBar'
-import { View, Text, StyleSheet, ScrollView } from 'react-native';
+import { View, Text, StyleSheet, ScrollView, Image } from 'react-native';
 import { SafeAreaView } from 'react-native';
 import BottomNavigationBar from '../components/bottomNavigationBar';
 import { Dimensions } from 'react-native';
@@ -14,15 +14,30 @@ import SignatureIcon from '../assets/images/lemon.png'
 import BrewedTeaIcon from '../assets/images/brewedTeaLogo.png'
 import IceBlendedIcon from '../assets/images/iceBlendedLogo.png'
 import SeasonalIcon from '../assets/images/seasonalLogo.png'
+import { TouchableOpacity } from 'react-native-gesture-handler';
+import AddIcon from '../assets/images/addIcon.png'
 
 const MenuScreen = () => {
+
+
+
+    const navigation = useNavigation();
+
+
     return(
         <View style = {styles.bigContainer}>
              <View style={styles.container}>
                     <SafeAreaView style = {styles.header}>
                         <Text style = {styles.titleText} >Menu</Text>
+                        <View style = {styles.button}>
+                            <TouchableOpacity style = {styles.addButton}
+                             onPress = { ()=> navigation.navigate('addPicScreen')}>
+                                <Image source = {AddIcon} style = {styles.addIconStyle }/>
+                            </TouchableOpacity>
+                        </View>
                     </SafeAreaView>
-                </View>
+             </View>
+
             <SafeAreaView style = {styles.SAVcontainer}>
 
                 <ScrollView
@@ -34,14 +49,16 @@ const MenuScreen = () => {
                                 title = 'Fruit Tea' 
                                 icon = {FruitIcon} 
                                 style = {{height: 111, width: 97, alignSelf:  'center', marginTop: 5}}
-                                next = 'fruitTeaScreen' /> 
+                                next = 'fruitTeaScreen'
+                                path = 'fruitTea' /> 
                         </View>
                         <View style = {styles.milkTea}>
                             <CategoryBox 
                                 title = 'Milk Tea'
                                 icon = {MilkTeaIcon}
                                 style = {{height: 110, width: 119, alignSelf: 'center', marginTop: 5}}
-                                next = 'milkTeaScreen'
+                                next = 'milkTea'
+                                path = 'milkTea'
                                 /> 
                         </View>
                     </View>
@@ -52,6 +69,7 @@ const MenuScreen = () => {
                                 icon = {FreshMilkIcon}
                                 style = {{height:110, width: 106, alignSelf: 'center', marginTop: 7}}
                                 next = 'freshMilkScreen'
+                                path = 'freshMilk'
                                 />
                         </View>
 
@@ -61,6 +79,7 @@ const MenuScreen = () => {
                                 icon = {SignatureIcon}
                                 style = {{height: 110, width: 117, alignSelf: 'center', marginTop: 5}}
                                 next = 'signatureScreen'
+                                path = 'signatures'
                                 />
                         </View>
                     </View>
@@ -72,6 +91,7 @@ const MenuScreen = () => {
                                 icon = {BrewedTeaIcon}
                                 style = {{height:100, width: 100, alignSelf: 'center', marginTop: 10}}
                                 next = 'brewedTeaScreen'
+                                path = 'brewedTea'
                                 />
                         </View>
                         <View style = {styles.iceBlended}>
@@ -80,6 +100,7 @@ const MenuScreen = () => {
                                 icon = {IceBlendedIcon}
                                 style = {{height: 103, width: 100, alignSelf:'center', marginTop: 7}}
                                 next = 'iceBlendedScreen'
+                                path = 'iceBlended'
                                 />
                         </View>
                     </View>
@@ -90,6 +111,7 @@ const MenuScreen = () => {
                             icon = {SeasonalIcon}
                             style = {{height: 100, width: 100, alignSelf: 'center', marginTop: 10}}
                             next = 'seasonalScreen'
+                            path = 'seasonal'
                             />
                     </View>
                     
@@ -126,7 +148,7 @@ const styles = StyleSheet.create({
     },
     header: {
         height: 80,
-        //flexDirection: 'row',
+        flexDirection: 'row',
         backgroundColor: '#D0112B',
         justifyContent: 'center',
         //alignItems: 'center',  
@@ -135,6 +157,7 @@ const styles = StyleSheet.create({
       color: '#fff',
       alignSelf: 'center',
       fontSize: 20,
+      left: 20
     },
     firstRow: {
         marginTop: -20,
@@ -169,6 +192,21 @@ const styles = StyleSheet.create({
         marginTop: 40,
         marginBottom: 20
         //borderWidth: 5,
+    },
+    addButton: {
+       // left: 100,
+        //borderWidth: 1,
+        height: 63,
+        width: 44,
+    },
+    addIconStyle: {
+        //borderWidth: 1,
+        height: 50,
+        width: 44,
+        
+    },
+    button: {
+        left: 130,
     }
 
 

@@ -71,15 +71,36 @@ const AddPicScreen = () => {
   }
 
 
-  //just hardcode
-  const testVariable = async() => {
-    setTestVar('awdadawd6dwa5')
-    navigation.navigate('generalDrinkScreen', {
-      testVar1 : 'lol123'
 
-    });
+  //listens to when testVar changes variable, then navigate to next page with new variable value
+  useEffect( ()  => {
+    console.log(testVar);
 
-  }
+    if (testVar !== ''){
+      navigation.navigate('generalDrinkScreen', {
+        testVar1 : testVar
+        
+      });
+    }
+    
+
+    return () => {
+      setTestVar('')
+    }
+   
+  }, [testVar])
+  
+
+  // //just hardcode
+  // const testVariable = async() => {
+  //   setTestVar('abcd1234')
+  //   navigation.navigate('generalDrinkScreen', {
+  //     testVar1 : 'lol123'
+
+  //   });
+  //   console.log(testVar);
+
+  // }
 
   return (
 
@@ -91,7 +112,9 @@ const AddPicScreen = () => {
         </View>
         <View style={{alignItems: 'center', justifyContent: 'center' }}>
         <Button title = "test for pulling"  onPress = {pullImage}/>
-        <Button title = 'test for variable across screen' onPress = {testVariable} />
+
+        <Button title = 'test for variable across screen' onPress = {() => setTestVar('lol123')} />
+
         <Button title="Pick an image from camera roll" onPress={pickImage} />
         {image && 
         <>

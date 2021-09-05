@@ -12,12 +12,16 @@ const Upload = (props) =>
 
     const [name, setName] = useState ("");
     const [price, setPrice] = useState("")
-    const [categories, setCategories] = useState("")
+    const [categories, setCategories] = useState("fruitTea")
     const [uploading, setUploading] = useState(false)
 
+
+    //Upload Image to firestore storage with the path of 'childpath'. 
+    //uri is passed in through props.
     const uploadImage = async() => {
         const uri = props.route.params.image;
         const childPath = `drink/${categories}/${name}_${Math.random().toString(36)}`
+        
         
 
         const response = await fetch(uri);
@@ -36,7 +40,9 @@ const Upload = (props) =>
             
         }
 
+        //calls savePostData and past in snapshot
         const taskCompleted = () => {
+            
             task.snapshot.ref.getDownloadURL().then((snapshot) => {
                 savePostData(snapshot);
                 console.log(snapshot);
@@ -54,6 +60,7 @@ const Upload = (props) =>
 
     }
     
+    //called by uploadImage, will save data to firestore
     const savePostData = (downloadURL) => {
         firebase.firestore().collection('menu')
                             .doc('categories')
@@ -66,7 +73,7 @@ const Upload = (props) =>
                                 categories,
                                 //creataion: firebase.firestore().FieldValue.serverTimestamp()
                             }).then((function () {
-                                navigation.navigate('addPicScreen')
+                                navigation.navigate('menuScreen')
                             }))
 
     }
@@ -92,8 +99,13 @@ const Upload = (props) =>
                 onValueChange={(categories) =>
                     setCategories(categories)
                 }>
-            <Picker.Item label="Fruit Tea" value="fruitTea" />
+             <Picker.Item label="Fruit Tea" value="fruitTea" />
             <Picker.Item label="Milk Tea" value="milkTea" />
+            <Picker.Item label="Fresh Milk" value="freshMilk" />
+            <Picker.Item label="Signatures" value="signatures" />
+            <Picker.Item label="Brewed Tea" value="brewedTea" />
+            <Picker.Item label="Ice Blended" value="iceBlended" />
+            <Picker.Item label="Seasonal" value="seasonal" />
             <Picker.Item label="Test" value="test" />
 
             </Picker>
