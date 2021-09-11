@@ -18,6 +18,7 @@ const AddPicScreen = () => {
 
   
 
+  //ask permission for image library when screen first render
   useEffect(() => {
     (async () => {
       if (Platform.OS !== 'web') {
@@ -45,30 +46,30 @@ const AddPicScreen = () => {
       setImage(result.uri);
       
     }
-    console.log(result.uri)
+    //console.log(result.uri)
     
   };
 
 
 
   //WORKING, setting imagePull to lol123's image
-  const pullImage = async() => {
+  // const pullImage = async() => {
     
-    const imageRef = db.collection('menu').doc('categories').collection('test').doc('lol123');
-    const finalImage = await imageRef.get();
+  //   const imageRef = db.collection('menu').doc('categories').collection('test').doc('lol123');
+  //   const finalImage = await imageRef.get();
 
-    if(!finalImage.exists)
-    {
-      console.log("error");
-    }else {
-      console.log('Document Data:', finalImage.data().downloadURL);
-      setImagePull(finalImage.data().downloadURL);
-      console.log(imagePull);
-    }
+  //   if(!finalImage.exists)
+  //   {
+  //     console.log("error");
+  //   }else {
+  //     console.log('Document Data:', finalImage.data().downloadURL);
+  //     setImagePull(finalImage.data().downloadURL);
+  //     console.log(imagePull);
+  //   }
 
 
     
-  }
+  // }
 
 
 
@@ -91,17 +92,6 @@ const AddPicScreen = () => {
   }, [testVar])
   
 
-  // //just hardcode
-  // const testVariable = async() => {
-  //   setTestVar('abcd1234')
-  //   navigation.navigate('generalDrinkScreen', {
-  //     testVar1 : 'lol123'
-
-  //   });
-  //   console.log(testVar);
-
-  // }
-
   return (
 
     <View>
@@ -111,9 +101,6 @@ const AddPicScreen = () => {
                         </SafeAreaView>
         </View>
         <View style={{alignItems: 'center', justifyContent: 'center' }}>
-        <Button title = "test for pulling"  onPress = {pullImage}/>
-
-        <Button title = 'test for variable across screen' onPress = {() => setTestVar('lol123')} />
 
         <Button title="Pick an image from camera roll" onPress={pickImage} />
         {image && 
@@ -125,6 +112,11 @@ const AddPicScreen = () => {
         </>
         }
        
+        {/* For testing purposes  */}
+        {/* <Button title = "test for pulling"  onPress = {pullImage}/>
+        <Button title = 'test for variable across screen' onPress = {() => setTestVar('lol123')} /> */}
+
+        
         </View>
     </View>
   );

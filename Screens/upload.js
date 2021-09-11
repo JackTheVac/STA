@@ -18,6 +18,7 @@ const Upload = (props) =>
 
     //Upload Image to firestore storage with the path of 'childpath'. 
     //uri is passed in through props.
+    //when called, makes snapshot and call savePostData
     const uploadImage = async() => {
         const uri = props.route.params.image;
         const childPath = `drink/${categories}/${name}_${Math.random().toString(36)}`

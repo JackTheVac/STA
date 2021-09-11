@@ -17,13 +17,6 @@ import SignInScreen from './Screens/signIn';
 import SignUpScreen from './Screens/signUp';
 import RewardsScreen from './Screens/rewardsScreen';
 import MenuScreen from './Screens/menuScreen';
-import FruitTeaScreen from './Screens/DrinkScreens/FruitTeaScreen';
-import MilkTeaScreen from './Screens/DrinkScreens/MilkTeaScreen';
-import FreshMilkScreen from './Screens/DrinkScreens/FreshMilkScreen';
-import SignatureScreen from './Screens/DrinkScreens/SignatureScreen';
-import BrewedTeaScreen from './Screens/DrinkScreens/BrewedTeaScreen';
-import IceBlendedScreen from './Screens/DrinkScreens/IceBlendedScreen';
-import SeasonalScreen from './Screens/DrinkScreens/SeasonalScreen';
 import AddPicScreen from './Screens/addPicScreen';
 import Upload from './Screens/upload';
 import GeneralDrinkScreen from './Screens/DrinkScreens/generalDrinkScreen';
@@ -36,7 +29,7 @@ export default function App() {
   return (
     <NavigationContainer>
       <Stack.Navigator screenOptions = {{headerShown: false}}
-                       initialRouteName = {'menuScreen'}
+                       initialRouteName = {'firstMainScreen'}
                        
                        >
         <Stack.Screen name = 'firstMainScreen' component = {FirstMainScreen} options={{gestureEnabled: false}} />
@@ -44,14 +37,6 @@ export default function App() {
         <Stack.Screen name = 'signUpScreen' component = {SignUpScreen} />
         <Stack.Screen name = 'rewardsScreen' component = {RewardsScreen} options={{gestureEnabled: false}}/>
         <Stack.Screen name = 'menuScreen' component = {MenuScreen}  />
-        
-        <Stack.Screen name = 'fruitTeaScreen' component = {FruitTeaScreen} />
-        <Stack.Screen name = 'milkTeaScreen' component = {MilkTeaScreen} />
-        <Stack.Screen name = 'freshMilkScreen' component = {FreshMilkScreen} />
-        <Stack.Screen name = 'signatureScreen' component = {SignatureScreen} />
-        <Stack.Screen name = 'brewedTeaScreen' component = {BrewedTeaScreen} />
-        <Stack.Screen name = 'iceBlenededScreen' component = {IceBlendedScreen} />
-        <Stack.Screen name = 'seasonalScreen' component = {SeasonalScreen} />
         <Stack.Screen name = 'addPicScreen' component = {AddPicScreen} />
         <Stack.Screen name = 'upload' component = {Upload} />
         <Stack.Screen name = 'generalDrinkScreen' component = {GeneralDrinkScreen} />

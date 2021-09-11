@@ -63,7 +63,7 @@ const MenuScreen = () => {
                         </View>
                     </View>
                     <View style = {styles.secondRow}>
-                        <View style = {styles.freshMilk}>
+                        <View >
                             <CategoryBox
                                 title = 'Fresh Milk'
                                 icon = {FreshMilkIcon}
@@ -73,7 +73,7 @@ const MenuScreen = () => {
                                 />
                         </View>
 
-                        <View style = {styles.signature}>
+                        <View >
                             <CategoryBox
                                 title = 'Signatures'
                                 icon = {SignatureIcon}
@@ -85,7 +85,7 @@ const MenuScreen = () => {
                     </View>
 
                     <View style = {styles.thirdRow}>
-                        <View style = {styles.brewedTea}>
+                        <View >
                             <CategoryBox
                                 title = 'Brewed Tea'
                                 icon = {BrewedTeaIcon}
@@ -94,7 +94,7 @@ const MenuScreen = () => {
                                 path = 'brewedTea'
                                 />
                         </View>
-                        <View style = {styles.iceBlended}>
+                        <View>
                             <CategoryBox
                                 title = 'Ice Blended'
                                 icon = {IceBlendedIcon}
@@ -119,7 +119,7 @@ const MenuScreen = () => {
 
             </SafeAreaView>
 
-            <View style = {styles.bottomContainer}>
+            <View >
                 <BottomNavigationBar/>
             </View>
            
